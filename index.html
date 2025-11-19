@@ -1,57 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Webcam Detection Test</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 2em;
-      }
-      #result {
-        font-weight: bold;
-        margin-top: 1em;
-      }
-    </style>
+    <link rel="icon" type="image/svg+xml" href="/otp-autofill-react/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>otp-autofill-react</title>
+    <script type="module" crossorigin src="/otp-autofill-react/assets/index-CsjMfrmf.js"></script>
+    <link rel="stylesheet" crossorigin href="/otp-autofill-react/assets/index-BrlwUJ0L.css">
   </head>
   <body>
-    <h1>Webcam Detection Test</h1>
-    <button id="checkWebcamBtn">Check for Webcam</button>
-    <div id="result"></div>
-
-    <script>
-      function hasWebcam() {
-        if (
-          !navigator.mediaDevices ||
-          !navigator.mediaDevices.enumerateDevices
-        ) {
-          return Promise.resolve(false); // API not supported
-        }
-        return navigator.mediaDevices
-          .enumerateDevices()
-          .then(function (devices) {
-            return devices.some(function (device) {
-              return device.kind === "videoinput";
-            });
-          })
-          .catch(function () {
-            return false; // Error accessing devices
-          });
-      }
-
-      document
-        .getElementById("checkWebcamBtn")
-        .addEventListener("click", function () {
-          var resultDiv = document.getElementById("result");
-          resultDiv.textContent = "Checking...";
-          hasWebcam().then(function (hasCam) {
-            if (hasCam) {
-              resultDiv.textContent = "Webcam detected!";
-            } else {
-              resultDiv.textContent = "No webcam detected.";
-            }
-          });
-        });
-    </script>
+    <div id="root"></div>
   </body>
 </html>
